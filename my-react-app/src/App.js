@@ -15,7 +15,7 @@ function App() {
          <BrowserRouter>
             <Nav />
             <Home />
-            {/* <div className="pages">
+            <div className="pages">
                <Routes>
                   <Route
                      path="/"
@@ -30,7 +30,7 @@ function App() {
                      element={!user ? <Signup /> : <Navigate to="/login" />}
                   />
                </Routes>
-            </div> */}
+            </div>
          </BrowserRouter>
       </div>
    );
