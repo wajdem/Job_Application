@@ -1,31 +1,27 @@
 const Job = require("../models/jopModel");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
 const getJobs = async (req, res) => {
-  try {
     const jobs = await Job.find({}).sort({ createdAt: -1 });
     res.status(200).json(jobs);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
 };
 
-const getJob = async (req, res) => {
-  console.log("Request Body:", req.body);
-  const { id } = req.params;
+// const getJob = async (req, res) => {
+//   console.log("Request Body:", req.body);
+//   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such Job" });
-  }
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     return res.status(404).json({ error: "No such Job" });
+//   }
 
-  const job = await Job.findById(id);
+//   const job = await Job.findById(id);
 
-  if (!job) {
-    return res.status(404).json({ error: "No such Job" });
-  }
+//   if (!job) {
+//     return res.status(404).json({ error: "No such Job" });
+//   }
 
-  res.status(200).json(job);
-};
+//   res.status(200).json(job);
+// };
 
 const createJob = async (req, res) => {
   console.log("Request Body:", req.body);
@@ -59,46 +55,46 @@ const createJob = async (req, res) => {
   }
 };
 
-const deleteJob = async (req, res) => {
-  const { id } = req.params;
+// const deleteJob = async (req, res) => {
+//   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such job" });
-  }
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     return res.status(404).json({ error: "No such job" });
+//   }
 
-  const job = await Job.findOneAndDelete({ _id: id });
+//   const job = await Job.findOneAndDelete({ _id: id });
 
-  if (!job) {
-    return res.status(400).json({ error: "No such job" });
-  }
+//   if (!job) {
+//     return res.status(400).json({ error: "No such job" });
+//   }
 
-  res.status(200).json(job);
-};
+//   res.status(200).json(job);
+// };
 
-const updateJob = async (req, res) => {
-  const { id } = req.params;
+// const updateJob = async (req, res) => {
+//   const { id } = req.params;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such job" });
-  }
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     return res.status(404).json({ error: "No such job" });
+//   }
 
-  const job = await Job.findOneAndUpdate(
-    { _id: id },
-    { ...req.body },
-    { new: true }
-  );
+//   const job = await Job.findOneAndUpdate(
+//     { _id: id },
+//     { ...req.body },
+//     { new: true }
+//   );
 
-  if (!job) {
-    return res.status(400).json({ error: "No such job" });
-  }
+//   if (!job) {
+//     return res.status(400).json({ error: "No such job" });
+//   }
 
-  res.status(200).json(job);
-};
+//   res.status(200).json(job);
+// };
 
 module.exports = {
   getJobs,
-  getJob,
+  // getJob,
   createJob,
-  deleteJob,
-  updateJob,
+  // deleteJob,
+  // updateJob,
 };

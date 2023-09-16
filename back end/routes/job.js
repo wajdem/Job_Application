@@ -1,31 +1,73 @@
 const express = require("express");
-const {
-  getJobs,
-  getJob,
-  createJob,
-  deleteJob,
-  updateJob,
-} = require("../controllers/jopController");
+const router = express.Router();
 const requireAuth = require("../middleware/requireAuth");
 
-const router = express.Router();
-
-// Require authentication for all job routes
 router.use(requireAuth);
 
-// GET all jobs
-router.get("/", getJobs);
 
-// GET a single job
-router.get("/:id", getJob);
+const {  getJobs,   createJob} = require("../controllers/jopController")
+const {
+  createJobListing,
+  getJobListing,
+  deleteJobListing,
+  updateJobListing,
+} = require("../controllers/jobListingController");
+
+// Create a new job listing
+router.post("/api/job-listings", createJobListing);
+
+// Get all job listings
+router.get("/job-listings", getJobListing);
+
+// Delete a job listing by ID
+router.delete("/job-listings/:id", deleteJobListing);
+
+// Update a job listing by ID
+router.put("/job-listings/:id", updateJobListing);
+
+// GET all jobs
+router.get("/jops", getJobs);
 
 // POST a new job
-router.post("/", createJob);
-
-// DELETE a job
-router.delete("/:id", deleteJob);
-
-// UPDATE a job
-router.patch("/:id", updateJob);
+router.post("/jop", createJob);
 
 module.exports = router;
+
+
+
+
+// const {
+//   getJobs,
+//   getJob,
+//   createJob,
+//   deleteJob,
+//   updateJob,
+// } = require("../controllers/jopController");
+// const requireAuth = require("../middleware/requireAuth");
+// const { createJobListing } = require('../controllers/jobListingController');
+
+
+// // const router = express.Router();
+
+// // Require authentication for all job routes
+// router.use(requireAuth);
+
+// // GET all jobs
+// router.get("/", getJobs);
+
+// router.post('/api/job-listings', createJobListing);
+
+
+// // // GET a single job
+// // router.get("/:id", getJob);
+
+// // POST a new job
+// router.post("/", createJob);
+
+// // // DELETE a job
+// // router.delete("/:id", deleteJob);
+
+// // // UPDATE a job
+// // router.patch("/:id", updateJob);
+
+// module.exports = router;

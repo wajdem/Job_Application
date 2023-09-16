@@ -4,7 +4,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/user");
 const jopRoutes = require("./routes/job");
+
+
+//express app
 const app = express();
+
+// middleware
+app.use(express.json());
 
 
 app.use((req, res, next) => {
@@ -12,10 +18,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
 
 app.use("/api/user", userRoutes);
-app.use("/api/job", jopRoutes);
+app.use("/api", jopRoutes);
 
 
 
