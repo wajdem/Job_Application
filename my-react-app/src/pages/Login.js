@@ -9,7 +9,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await login(email, password)
+    if (email === 'admin@example.com' && password === 'adminpassword') {
+      await login(email, password)
+    } else {
+      alert('Invalid credentials. Only the admin can log in.')
+    }
   }
 
   return (

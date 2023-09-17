@@ -1,14 +1,16 @@
-const express = require('express')
+// Routes
+const express = require('express');
+const router = express.Router();
+const { signupUser, loginUser } = require('../controllers/userControllers');
 
-//controller functions
-const { signupUser , loginUser } = require('../controllers/userControllers')
 
-const router = express.Router()
+// Sign Up Route (Exclude from authentication)
+router.post('/signup', signupUser);
 
-//login route
-router.post('/login', loginUser)
+// Login Route (Exclude from authentication)
+router.post('/login', loginUser);
 
-//signup route
-router.post('/signup', signupUser)
+// Other routes that require authentication...
 
-module.exports = router
+
+module.exports = router;
