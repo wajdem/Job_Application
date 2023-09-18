@@ -14,7 +14,6 @@ const NewjopPopup = () => {
         description,
         applicationDeadline,
       });
-      // Handle the response as needed (e.g., show a success message)
     } catch (error) {
       console.error("Error creating job listing:", error);
     }

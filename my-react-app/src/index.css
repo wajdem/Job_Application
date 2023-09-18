@@ -43,7 +43,6 @@ header a {
    grid-template-columns: 3fr 1fr;
    gap: 100px;
 }
-
 .subject-details {
    width: 130%;
    background: #fff;

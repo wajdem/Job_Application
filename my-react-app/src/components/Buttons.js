@@ -18,6 +18,7 @@ const Buttons = () => {
         New Jop
       </button>
       {showJopPopup && <NewJobPopup onClose={handleClosePopup} />} {/* Corrected component name */}
+      <button className="button-student">Requests Jop</button>
     </div>
   );
 };
