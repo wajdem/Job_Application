@@ -6,25 +6,8 @@ const getJobs = async (req, res) => {
     res.status(200).json(jobs);
 };
 
-// const getJob = async (req, res) => {
-//   console.log("Request Body:", req.body);
-//   const { id } = req.params;
-
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(404).json({ error: "No such Job" });
-//   }
-
-//   const job = await Job.findById(id);
-
-//   if (!job) {
-//     return res.status(404).json({ error: "No such Job" });
-//   }
-
-//   res.status(200).json(job);
-// };
-
 const createJob = async (req, res) => {
-  console.log("Request Body:", req.body);
+  console.log(req.body);
   const {
     name,
     address,
@@ -33,7 +16,7 @@ const createJob = async (req, res) => {
     contactInformation,
     yearsOfExperience,
     educationInformation,
-    cv,
+    // cv,
     additionalInformation,
   } = req.body;
 
@@ -46,7 +29,7 @@ const createJob = async (req, res) => {
       contactInformation,
       yearsOfExperience,
       educationInformation,
-      cv,
+      // cv,
       additionalInformation,
     });
     res.status(200).json(job);
@@ -55,46 +38,7 @@ const createJob = async (req, res) => {
   }
 };
 
-// const deleteJob = async (req, res) => {
-//   const { id } = req.params;
-
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(404).json({ error: "No such job" });
-//   }
-
-//   const job = await Job.findOneAndDelete({ _id: id });
-
-//   if (!job) {
-//     return res.status(400).json({ error: "No such job" });
-//   }
-
-//   res.status(200).json(job);
-// };
-
-// const updateJob = async (req, res) => {
-//   const { id } = req.params;
-
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(404).json({ error: "No such job" });
-//   }
-
-//   const job = await Job.findOneAndUpdate(
-//     { _id: id },
-//     { ...req.body },
-//     { new: true }
-//   );
-
-//   if (!job) {
-//     return res.status(400).json({ error: "No such job" });
-//   }
-
-//   res.status(200).json(job);
-// };
-
 module.exports = {
   getJobs,
-  // getJob,
   createJob,
-  // deleteJob,
-  // updateJob,
 };

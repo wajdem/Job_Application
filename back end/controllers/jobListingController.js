@@ -51,6 +51,7 @@ const deleteJobListing = async (req, res) => {
 
 const updateJobListing = async (req, res) => {
   const { id } = req.params;
+  console.log(req.bady);
 
   try {
     const updatedJobListing = await JobListing.findOneAndUpdate(

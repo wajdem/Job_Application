@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/api', jopRoutes)
+app.use('/api/jop', jopRoutes)
 app.use('/api/user', userRoutes)
 
 // connect to db
