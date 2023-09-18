@@ -22,7 +22,7 @@ function App() {
                   />
                   <Route
                      path="/login"
-                     element={!user ? <Login /> : <Navigate to="/Home" />}
+                     element={!user ? <Login /> : <Navigate to="/" />}
                   />
                </Routes>
             </div>
