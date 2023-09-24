@@ -31,10 +31,6 @@ const jobSchema = new Schema({
         type: String,
         required: true
     },
-    // cv: {
-    //     type: String, // Assuming you will store the file path or URL here
-    //     required: true
-    // },
     additionalInformation: {
         type: String,
         required: false

@@ -30,7 +30,7 @@ const JopForm = ({ route }) => {
 
     try {
       const response = await fetch(
-        "https://d6c3-94-249-0-61.ngrok.io/api/jop/newjop",
+        "https://a9a6-94-249-0-60.ngrok.io/api/jop/newjop",
         {
           method: "POST",
           headers: {

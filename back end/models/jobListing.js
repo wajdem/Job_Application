@@ -12,7 +12,7 @@ const jobListingSchema = new Schema({
         required: true
     },
     applicationDeadline: {
-        type: Date,
+        type: String,
         required: true
     }
 });

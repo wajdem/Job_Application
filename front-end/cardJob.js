@@ -8,7 +8,7 @@ const cardJop = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    axios.get('https://d6c3-94-249-0-61.ngrok.io/api/jop/all-job-listings')
+    axios.get('https://a9a6-94-249-0-60.ngrok.io/api/jop/all-job-listings')
       .then(response => {
         setJobListings(response.data);
       })
