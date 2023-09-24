@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { View, TextInput, Button, StyleSheet, Alert, Text } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+
 
 const JopForm = ({ route }) => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,8 @@ const JopForm = ({ route }) => {
     additionalInformation: "",
   });
   const { jobTitle } = route.params;
+  const navigation = useNavigation();
+
 
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
@@ -26,6 +30,7 @@ const JopForm = ({ route }) => {
         ]);
         return; // Stop the function if any field is empty
       }
+      navigation.navigate('JobCard'); // Make sure 'JobCard' is the correct name of your screen
     }
 
     try {
